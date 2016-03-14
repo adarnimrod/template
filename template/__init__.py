@@ -3,21 +3,22 @@
 
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
-from jinja2 import FileSystemLoader, DictLoader
-from jinja2.environment import Environment
+from jinja2 import Template
 from os import environ
-from sys import stdin, argv
+from sys import stdin
 
 
 def render(template):
-    env = Environment()
-    return env.from_string(template).render(environ)
+    t = Template(template)
+    return t.render(environ)
+
 
 def usage():
     raise NotImplemented
 
+
 def main():
-    template=stdin.read()
+    template = stdin.read()
     print(render(template))
 
 if __name__ == '__main__':

@@ -4,8 +4,8 @@ from setuptools import setup, find_packages
 setup(
     name='template',
     version=open('VERSION', 'r').read(),
-    description='A CLI tool for generating files from Jinja2 templates and
-    environment variables.',
+    description='''A CLI tool for generating files from Jinja2 templates and
+    environment variables.''',
     long_description=open('README.rst', 'r').read(),
     url='https://www.shore.co.il/git/template',
     author='Nimrod Adar',
