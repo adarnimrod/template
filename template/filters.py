@@ -2,24 +2,31 @@
 
 
 def to_yaml(value):
-    raise NotImplemented
+    from yaml import safe_dump
+    return safe_dump(value)
 
 
 def to_json(value):
-    raise NotImplemented
+    from json import dumps
+    return dumps(value)
 
 
 def from_json(value):
-    raise NotImplemented
+    from json import loads
+    return loads(value)
 
 
 def from_yaml(value):
-    raise NotImplemented
+    from yaml import safe_load
+    return safe_load(value)
 
 
 def pprint(value):
-    raise NotImplemented
+    from pprint import pformat
+    return pformat(value)
 
 
 def combine(lefthand, righthand):
-    raise NotImplemented
+    combined = lefthand.copy()
+    combined.update(righthand)
+    return combined

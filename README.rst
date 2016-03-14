@@ -3,8 +3,8 @@ Template
 
 A CLI tool for generating files from Jinja2 templates and environment variables.
 
-Example
--------
+Examples
+--------
 
 .. code:: shell
 
@@ -26,7 +26,32 @@ Example
     $ cat username
     John
 
-TODO
-----
 
-- Complex data types (process environment variables, Jinja filters).
+Jinja filters
+-------------
+
+The following Jinja filters were added:
+
+- to_yaml: Convert to yaml.
+- from_yaml: Convert from yaml.
+- to_json: Convert to json.
+- from_json: Convert from json.
+- pprint: Pretty print variable.
+- combine: Combine 2 dictionaries.
+
+Example usage can be seen in :code:`tests.sh`.
+
+
+License
+-------
+
+This software is licensed under the AGPL 3+ license (see the :code:`LICENSE.txt`
+file).
+
+Author
+------
+
+Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
+<https://www.shore.co.il/>`_. Patches are welcome via `git send-email
+<http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
+at: https://www.shore.co.il/git/.

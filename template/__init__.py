@@ -3,15 +3,20 @@
 
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
-from jinja2 import Template
+from jinja2 import Environment
 from os import environ
 from sys import stdin, stdout
 import argparse
 from argparse import ArgumentParser
+import template.filters
 
 
-def render(template):
-    t = Template(template)
+def render(template_string):
+    env = Environment()
+    # Add all functions in template.filters as Jinja filters.
+    for tf in filter(lambda x: not x.startswith('_'), dir(template.filters)):
+        env.filters[tf] = template.filters.__getattribute__(tf)
+    t = env.from_string(template_string)
     return t.render(environ)
 
 
