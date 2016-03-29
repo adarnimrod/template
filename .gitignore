@@ -1,8 +1,7 @@
 *~
 ~*
-*.swp
-*.swo
-*.pyc
+*.sw[op]
+*.py[cod]
 .DS_Store
 build/
 dist/
