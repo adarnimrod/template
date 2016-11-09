@@ -1,7 +1,8 @@
 Template
 ########
 
-A CLI tool for generating files from Jinja2 templates and environment variables.
+A CLI tool for generating files from Jinja2 templates and environment
+variables.
 
 Examples
 --------
@@ -10,6 +11,9 @@ Examples
 
     $ template -h
     usage: template [-h] [-o OUTPUT] [filename]
+
+    A CLI tool for generating files from Jinja2 templates and environment
+    variables.
 
     positional arguments:
       filename              Input filename
@@ -23,7 +27,7 @@ Examples
     Hello John.
     $ echo '{{ USER }}' > username.j2
     $ template --output username.txt username.j2
-    $ cat username
+    $ cat username.txt
     John
 
 
@@ -32,12 +36,12 @@ Jinja filters
 
 The following Jinja filters were added:
 
-- to_yaml: Convert to yaml.
-- from_yaml: Convert from yaml.
-- to_json: Convert to json.
-- from_json: Convert from json.
-- pprint: Pretty print variable.
-- combine: Combine 2 dictionaries.
+- :code:`to_yaml`: Convert to yaml.
+- :code:`from_yaml`: Convert from yaml.
+- :code:`to_json`: Convert to json.
+- :code:`from_json`: Convert from json.
+- :code:`pprint`: Pretty print variable.
+- :code:`combine`: Combine 2 dictionaries.
 
 Example usage can be seen in :code:`tests.sh`.
 
