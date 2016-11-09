@@ -26,7 +26,7 @@ def pprint(value):
     return pformat(value)
 
 
-def combine(lefthand, righthand):
-    combined = lefthand.copy()
-    combined.update(righthand)
+def combine(default, override):
+    combined = default.copy()
+    combined.update(override)
     return combined

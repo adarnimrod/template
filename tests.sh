@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
+set -eu
 
 export infile="$(mktemp)"
 export outfile="$(mktemp)"
@@ -36,5 +37,7 @@ echo '{{ [1, ] + [2, ] }}' > "$infile"
 test "$(template $infile)" = "[1, 2]"
 
 echo Testing combining dictionaries.
+echo '{{ {"a": 1, "b": 2}|combine({"a": 11, "c": 33}) }}' > "$infile"
+test "$(template $infile)" = "{'a': 11, 'c': 33, 'b': 2}"
 
 rm "$infile" "$outfile"

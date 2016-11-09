@@ -21,7 +21,9 @@ def render(template_string):
 
 
 def main():
-    parser = ArgumentParser()
+    parser = ArgumentParser(
+        description='''A CLI tool for generating files from Jinja2 templates
+        and environment variables.''')
     parser.add_argument('filename',
                         help='Input filename',
                         type=argparse.FileType('r'),
