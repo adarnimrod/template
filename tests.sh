@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
+set -eu
 
 export infile="$(mktemp)"
 export outfile="$(mktemp)"
