@@ -30,3 +30,13 @@ def combine(default, override):
     combined = default.copy()
     combined.update(override)
     return combined
+
+
+def from_toml(value):
+    from toml import loads
+    return loads(value)
+
+
+def to_toml(value):
+    from toml import dumps
+    return dumps(value)
