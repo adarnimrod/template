@@ -78,7 +78,7 @@ at: https://www.shore.co.il/git/.
 TODO
 ----
 
-- Add unit tests of filters using doctest.
+- Fix unicode strings in Python 2.7 only doctests in :code:`load_json`.
 - Fix combining dictionaries test.
 - Fix Travis CI test on Python 3.2 (https://travis-ci.org/adarnimrod/template/jobs/187388235).
 - Release on tagged commits to PyPI in Travis CI
