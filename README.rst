@@ -1,6 +1,9 @@
 Template
 ########
 
+.. image:: https://travis-ci.org/adarnimrod/template.svg?branch=master
+    :target: https://travis-ci.org/adarnimrod/template
+
 A CLI tool for generating files from Jinja2 templates and environment
 variables.
 
@@ -45,6 +48,18 @@ The following Jinja filters were added:
 
 Example usage can be seen in :code:`tests.sh`.
 
+Testing
+-------
+
+Local tests require both a Python 2, Python 3 and Tox installed and can be run
+by running :code:`tox`. Alternatively, Travis CI is used to test on multiple
+versions of Python for every push.
+
+Release
+-------
+
+Currently releases are done locally by running :code:`tox -e release` and
+require Python and Tox installed. Releases with Travis CI are coming.
 
 License
 -------
@@ -59,3 +74,11 @@ Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <https://www.shore.co.il/>`_. Patches are welcome via `git send-email
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
 at: https://www.shore.co.il/git/.
+
+TODO
+----
+
+- Fix combining dictionaries test.
+- Fix Travis CI test on Python 3.2 (https://travis-ci.org/adarnimrod/template/jobs/187388235).
+- Release on tagged commits to PyPI in Travis CI.
+- TOML support?
