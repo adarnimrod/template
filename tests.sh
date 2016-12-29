@@ -9,9 +9,10 @@ export name='John'
 test "$(echo 'Hello {{ name if name is defined else 'world' }}.' | template)" = "Hello John."
 
 echo Testing arguments and reading/ writing to file.
-echo '{{ USER }}' > "$infile"
+echo '{{ name }}' > "$infile"
+export name='John'
 template --output "$outfile" "$infile"
-test "$(cat $outfile)" = "$USER"
+test "$(cat $outfile)" = "$name"
 
 echo Testing JSON parsing.
 export json='{"a": 1, "b": 2}'
