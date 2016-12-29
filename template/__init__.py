@@ -36,5 +36,6 @@ def main():
     outfd = args.output if args.output else stdout
     print(render(infd.read()), file=outfd)
 
+
 if __name__ == '__main__':
     main()
