@@ -2,6 +2,19 @@
 
 
 def to_yaml(value):
+    '''
+    Converts given data structure to YAML form.
+    Examples:
+
+    >>> to_yaml([1,2,3])
+    '[1, 2, 3]\\n'
+    >>> to_yaml({'a': 1, 'b': 2})
+    '{a: 1, b: 2}\\n'
+    >>> to_yaml({1: {'a': [1,2,3]}})
+    '1:\\n  a: [1, 2, 3]\\n'
+    >>> to_yaml("abc")
+    'abc\\n...\\n'
+    '''
     from yaml import safe_dump
     return safe_dump(value)
 
