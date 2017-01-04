@@ -53,15 +53,16 @@ Example usage can be seen in :code:`tests.sh`.
 Testing
 -------
 
-Local tests require both a Python 2, Python 3 and Tox installed and can be run
-by running :code:`tox`. Alternatively, Travis CI is used to test on multiple
-versions of Python for every push.
+Tests require Python 2.7, Python 3.2 or later and Tox and are run by running
+:code:`tox`. Also, Travis CI is used to test on multiple Python versions for
+every push.
 
 Release
 -------
 
-Currently releases are done locally by running :code:`tox -e release` and
-require Python and Tox installed. Releases with Travis CI are coming.
+Releases require Python 2.7 or Python 3.2 or later and Tox. To release a new
+version bump the version in the :code:`VERSION` file and run :code:`tox -e
+release`.
 
 License
 -------
@@ -80,7 +81,11 @@ at: https://www.shore.co.il/git/.
 TODO
 ----
 
+- Add unit tests of filters using doctest.
 - Fix combining dictionaries test.
 - Fix Travis CI test on Python 3.2 (https://travis-ci.org/adarnimrod/template/jobs/187388235).
-- Release on tagged commits to PyPI in Travis CI.
-- TOML support?
+- Release on tagged commits to PyPI in Travis CI
+  (https://docs.travis-ci.com/user/deployment/pypi/ and
+  https://docs.travis-ci.com/user/encryption-keys/).
+- Add JMESPath support.
+- Add TOML support?
