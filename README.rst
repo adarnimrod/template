@@ -51,15 +51,16 @@ Example usage can be seen in :code:`tests.sh`.
 Testing
 -------
 
-Local tests require both a Python 2, Python 3 and Tox installed and can be run
-by running :code:`tox`. Alternatively, Travis CI is used to test on multiple
-versions of Python for every push.
+Tests require Python 2.7, Python 3.2 or later and Tox and are run by running
+:code:`tox`. Also, Travis CI is used to test on multiple Python versions for
+every push.
 
 Release
 -------
 
-Currently releases are done locally by running :code:`tox -e release` and
-require Python and Tox installed. Releases with Travis CI are coming.
+Releases require Python 2.7 or Python 3.2 or later and Tox. To release a new
+version bump the version in the :code:`VERSION` file and run :code:`tox -e
+release`.
 
 License
 -------
