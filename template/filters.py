@@ -72,11 +72,31 @@ def from_yaml(value):
 
 
 def pprint(value):
+    '''
+    Returns a pretty string representation of the data structure given.
+    Examples:
+    >>> pprint(1)
+    '1'
+    >>> pprint([{'first_name': 'John', 'last_name': 'Doe'}, {'first_name': 'Jane', 'last_name': 'Doe'}])  # noqa: E501
+    "[{'first_name': 'John', 'last_name': 'Doe'},\\n {'first_name': 'Jane', 'last_name': 'Doe'}]"
+    '''
     from pprint import pformat
     return pformat(value)
 
 
 def combine(default, override):
+    '''
+    Returns a combined dictionary of the 2 dictionaries given (with the 2nd
+    overriding the 1st).
+    Examples:
+    >>> combined = combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4})
+    >>> 'a' in combined
+    True
+    >>> 'c' in combined
+    True
+    >>> combined['b'] == 3
+    True
+    '''
     combined = default.copy()
     combined.update(override)
     return combined
