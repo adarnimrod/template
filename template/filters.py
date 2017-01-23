@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
+import six  # noqa: F401
 
 
 def to_yaml(value):
@@ -46,10 +47,10 @@ def from_json(value):
 
     >>> from_json('[1, 2, 3]')
     [1, 2, 3]
-    >>> from_json('"a"')
-    u'a'
-    >>> from_json('{"1": {"a": [1, 2, 3]}}')
-    {u'1': {u'a': [1, 2, 3]}}
+    >>> from_json('"a"') == six.text_type(u'a')
+    True
+    >>> from_json('{"1": {"a": [1, 2, 3]}}') == {u'1': {u'a': [1, 2, 3]}}
+    True
     '''
     from json import loads
     return loads(value)
@@ -77,8 +78,13 @@ def pprint(value):
     Examples:
     >>> pprint(1)
     '1'
-    >>> pprint([{'first_name': 'John', 'last_name': 'Doe'}, {'first_name': 'Jane', 'last_name': 'Doe'}])  # noqa: E501
-    "[{'first_name': 'John', 'last_name': 'Doe'},\\n {'first_name': 'Jane', 'last_name': 'Doe'}]"
+    >>> output = pprint([{'first_name': 'John', 'last_name': 'Doe'}, {'first_name': 'Jane', 'last_name': 'Doe'}])  # noqa: E501
+    >>> if six.PY3:
+    ...  output == "[{'first_name': 'John', 'last_name': 'Doe'},\\n {'first_name': 'Jane', 'last_name': 'Doe'}]"
+    ... elif six.PY2:
+    ...  output == "[{u'first_name': u'John', u'last_name': u'Doe'},\\n {u'first_name': u'Jane', u'last_name': u'Doe'}]"
+    ...
+    True
     '''
     from pprint import pformat
     return pformat(value)
@@ -89,12 +95,7 @@ def combine(default, override):
     Returns a combined dictionary of the 2 dictionaries given (with the 2nd
     overriding the 1st).
     Examples:
-    >>> combined = combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4})
-    >>> 'a' in combined
-    True
-    >>> 'c' in combined
-    True
-    >>> combined['b'] == 3
+    >>> combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4}) == {'a': 1, 'b': 3, 'c': 4}
     True
     '''
     combined = default.copy()
