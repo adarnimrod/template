@@ -1,10 +1,14 @@
 ---
 language: python
-python: ["2.7", "3.3", "3.4", "3.5"]
+python: ["2.7", "3.2", "3.3", "3.4", "3.5"]
 dist: trusty
 sudo: false
 cache:
   - pip
+matrix:
+  include:
+    - python: "3.5"
+      env: TOXENV=docs
 
 install:
   - pip install tox-travis
