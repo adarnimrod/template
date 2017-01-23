@@ -14,31 +14,4 @@ export name='John'
 template --output "$outfile" "$infile"
 test "$(cat $outfile)" = "$name"
 
-echo Testing JSON parsing.
-export json='{"a": 1, "b": 2}'
-echo '{{ (json|from_json)["a"] }}' > "$infile"
-test "$(template $infile)" = "1"
-
-echo Testing JSON output.
-echo '{{ [1, 1+2, 3] | to_json }}' > "$infile"
-test "$(template $infile)" = '[1, 3, 3]'
-
-echo Testing YAML parsing.
-export yaml='a: 1
-b: 2'
-echo '{{ (yaml|from_yaml)["a"] }}' > "$infile"
-test "$(template $infile)" = "1"
-
-echo Testing YAML output.
-echo '{{ [1, 1+2, 3] | to_yaml }}' > "$infile"
-test "$(template $infile)" = '[1, 3, 3]'
-
-echo Testing pprint.
-echo '{{ [1, ] + [2, ] }}' > "$infile"
-test "$(template $infile)" = "[1, 2]"
-
-# echo Testing combining dictionaries.
-# echo '{{ {"a": 1, "b": 2}|combine({"a": 11, "c": 33}) }}' > "$infile"
-# test "$(template $infile)" = "{'a': 11, 'c': 33, 'b': 2}"
-
 rm "$infile" "$outfile"
