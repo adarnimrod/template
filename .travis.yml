@@ -6,7 +6,7 @@ sudo: false
 cache:
   - pip
 matrix:
-  allow_failure:
+  allow_failures:
     - python: "3.2"
 
 install:
