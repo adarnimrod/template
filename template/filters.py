@@ -47,9 +47,9 @@ def from_json(value):
 
     >>> from_json('[1, 2, 3]')
     [1, 2, 3]
-    >>> from_json('"a"') == six.text_type(u'a')
+    >>> from_json('"a"') == six.text_type('a')
     True
-    >>> from_json('{"1": {"a": [1, 2, 3]}}') == {u'1': {u'a': [1, 2, 3]}}
+    >>> from_json('{"1": {"a": [1, 2, 3]}}') == {'1': {'a': [1, 2, 3]}}
     True
     '''
     from json import loads
