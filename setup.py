@@ -12,7 +12,7 @@ setup(
     author_email='nimrod@shore.co.il',
     license='MIT',
     classifiers=[
-        'Development status :: 4 - Beta',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 2',
