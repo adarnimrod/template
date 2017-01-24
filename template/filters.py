@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
-import six  # noqa: F401
 
 
 def to_yaml(value):
@@ -45,6 +44,7 @@ def from_json(value):
     Returns native data structure from the given JSON string.
     Examples:
 
+    >>> import six
     >>> from_json('[1, 2, 3]')
     [1, 2, 3]
     >>> from_json('"a"') == six.text_type('a')
@@ -78,6 +78,7 @@ def pprint(value):
     Examples:
     >>> pprint(1)
     '1'
+    >>> import six
     >>> output = pprint([{'first_name': 'John', 'last_name': 'Doe'}, {'first_name': 'Jane', 'last_name': 'Doe'}])  # noqa: E501
     >>> if six.PY3:
     ...  output == "[{'first_name': 'John', 'last_name': 'Doe'},\\n {'first_name': 'Jane', 'last_name': 'Doe'}]"
@@ -101,3 +102,25 @@ def combine(default, override):
     combined = default.copy()
     combined.update(override)
     return combined
+
+
+def jmespath(value, query):
+    '''
+    Queries the data using the JMESPath query language.
+    Examples:
+    >>> import six
+    >>> locations = [{'name': 'Seattle', 'state': 'WA'},
+    ... {"name": "New York", "state": "NY"},
+    ... {"name": "Bellevue", "state": "WA"},
+    ... {"name": "Olympia", "state": "WA"}]
+    >>> query = "[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}"  # noqa: E501
+    >>> WACities = jmespath(locations, query)
+    >>> if six.PY2:
+    ...  WACities == {u'WashingtonCities': u'Bellevue, Olympia, Seattle'}
+    ... elif six.PY3:
+    ...  WACities == {'WashingtonCities': 'Bellevue, Olympia, Seattle'}
+    ...
+    True
+    '''
+    import jmespath
+    return jmespath.search(query, value)
