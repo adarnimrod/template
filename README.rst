@@ -47,8 +47,11 @@ The following Jinja filters were added:
 - :code:`combine`: Combine 2 dictionaries.
 - :code:`to_toml`: Convert to toml.
 - :code:`from_toml`: Convert from toml.
+- :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
+  query language.
 
-Example usage can be seen in :code:`tests.sh`.
+Example usage can be seen in :code:`tests.sh` and for specific filters in the
+docstrings in :code:`template/filters.py`.
 
 Testing
 -------
@@ -81,11 +84,8 @@ at: https://www.shore.co.il/git/.
 TODO
 ----
 
-- Add unit tests of filters using doctest.
-- Fix combining dictionaries test.
-- Fix Travis CI test on Python 3.2 (https://travis-ci.org/adarnimrod/template/jobs/187388235).
+- Fix test failure on Python 3.2
+  (https://travis-ci.org/adarnimrod/template/jobs/194581463).
 - Release on tagged commits to PyPI in Travis CI
   (https://docs.travis-ci.com/user/deployment/pypi/ and
   https://docs.travis-ci.com/user/encryption-keys/).
-- Add JMESPath support.
-- Add TOML support?

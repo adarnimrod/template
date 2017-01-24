@@ -6,7 +6,10 @@ sudo: false
 cache:
   - pip
 matrix:
-  allow_failure:
+  include:
+    - python: "3.5"
+      env: TOXENV=docs
+  allow_failures:
     - python: "3.2"
 
 install:
