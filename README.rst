@@ -45,6 +45,8 @@ The following Jinja filters were added:
 - :code:`from_json`: Convert from json.
 - :code:`pprint`: Pretty print variable.
 - :code:`combine`: Combine 2 dictionaries.
+- :code:`to_toml`: Convert to toml.
+- :code:`from_toml`: Convert from toml.
 - :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
   query language.
 
@@ -87,4 +89,3 @@ TODO
 - Release on tagged commits to PyPI in Travis CI
   (https://docs.travis-ci.com/user/deployment/pypi/ and
   https://docs.travis-ci.com/user/encryption-keys/).
-- Add TOML support?

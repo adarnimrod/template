@@ -104,6 +104,29 @@ def combine(default, override):
     return combined
 
 
+def from_toml(value):
+    '''
+    Returns a data structure from the TOML string given.
+    Examples:
+    >>> from_toml('[table]\\nkey = "value"\\n') == {'table': {'key': 'value'}}
+    True
+    '''
+    from toml import loads
+    return loads(value)
+
+
+def to_toml(value):
+    '''
+    Returns a string of the TOML representation for the data structure given.
+    Examples:
+    >>> import six
+    >>> to_toml({'key': [1, 2]}) == six.text_type("key = [ 1, 2,]\\n")
+    True
+    '''
+    from toml import dumps
+    return dumps(value)
+
+
 def jmespath(value, query):
     '''
     Queries the data using the JMESPath query language.
