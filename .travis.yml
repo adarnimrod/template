@@ -13,9 +13,10 @@ matrix:
     - python: "3.2"
 
 install:
-  - pip install tox-travis
+  - pip install tox-travis pre-commit
 
 script:
+  - pre-commit run --all-files
   - tox
 
 notifications:
