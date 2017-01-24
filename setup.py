@@ -21,7 +21,7 @@ setup(
     ],
     keywords='config configuration jinja template environment',
     packages=find_packages(),
-    install_requires=['Jinja2', 'PyYAML', 'six'],
+    install_requires=['Jinja2', 'PyYAML', 'jmespath'],
     extras_require={
         'dev': ['tox'], },
     entry_points={
