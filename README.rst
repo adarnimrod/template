@@ -56,14 +56,14 @@ docstrings in :code:`template/filters.py`.
 Testing
 -------
 
-Tests require Python 2.7, Python 3.2 or later and Tox and are run by running
+Tests require Python 2.7, Python 3.3 or later and Tox and are run by running
 :code:`tox`. Also, Travis CI is used to test on multiple Python versions for
 every push.
 
 Release
 -------
 
-Releases require Python 2.7 or Python 3.2 or later and Tox. To release a new
+Releases require Python 2.7 or Python 3.3 or later and Tox. To release a new
 version bump the version in the :code:`VERSION` file and run :code:`tox -e
 release`.
 
