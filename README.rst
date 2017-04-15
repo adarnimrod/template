@@ -43,7 +43,6 @@ The following Jinja filters were added:
 - :code:`from_yaml`: Convert from yaml.
 - :code:`to_json`: Convert to json.
 - :code:`from_json`: Convert from json.
-- :code:`pprint`: Pretty print variable.
 - :code:`combine`: Combine 2 dictionaries.
 - :code:`to_toml`: Convert to toml.
 - :code:`from_toml`: Convert from toml.

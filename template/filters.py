@@ -72,25 +72,6 @@ def from_yaml(value):
     return safe_load(value)
 
 
-def pprint(value):
-    '''
-    Returns a pretty string representation of the data structure given.
-    Examples:
-    >>> pprint(1)
-    '1'
-    >>> import six
-    >>> output = pprint([{'first_name': 'John', 'last_name': 'Doe'}, {'first_name': 'Jane', 'last_name': 'Doe'}])  # noqa: E501
-    >>> if six.PY3:
-    ...  output == "[{'first_name': 'John', 'last_name': 'Doe'},\\n {'first_name': 'Jane', 'last_name': 'Doe'}]"
-    ... elif six.PY2:
-    ...  output == "[{u'first_name': u'John', u'last_name': u'Doe'},\\n {u'first_name': u'Jane', u'last_name': u'Doe'}]"
-    ...
-    True
-    '''
-    from pprint import pformat
-    return pformat(value)
-
-
 def combine(default, override):
     '''
     Returns a combined dictionary of the 2 dictionaries given (with the 2nd
