@@ -12,7 +12,7 @@ import template.filters
 
 
 def render(template_string):
-    env = Environment()
+    env = Environment(autoescape=True)
     # Add all functions in template.filters as Jinja filters.
     for tf in filter(lambda x: not x.startswith('_'), dir(template.filters)):
         env.filters[tf] = template.filters.__getattribute__(tf)
