@@ -43,21 +43,20 @@ The following Jinja filters were added:
 - :code:`from_yaml`: Convert from yaml.
 - :code:`to_json`: Convert to json.
 - :code:`from_json`: Convert from json.
-- :code:`combine`: Combine 2 dictionaries.
 - :code:`to_toml`: Convert to toml.
 - :code:`from_toml`: Convert from toml.
 - :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
   query language.
 
-Example usage can be seen in :code:`tests.sh` and for specific filters in the
+Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/filters.py`.
 
 Testing
 -------
 
-Tests require Python 2.7, Python 3.3 or later and Tox and are run by running
-:code:`tox`. Also, Travis CI is used to test on multiple Python versions for
-every push.
+Tests require Python 2.7, Python 3.3 or later, Tox and Bats and are run by
+running :code:`tox`. Also, Travis CI is used to test on multiple Python
+versions for every push.
 
 Release
 -------

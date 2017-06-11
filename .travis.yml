@@ -19,8 +19,11 @@ matrix:
     - python: "3.2"
 
 install:
+  - git clone --depth 1 https://github.com/sstephenson/bats "$HOME/bats"
   - pip install tox-travis | cat
 
+env:
+    PATH: "$PATH:$HOME/bats/bin"
 script:
   - tox
 
