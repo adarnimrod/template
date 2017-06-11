@@ -1,5 +1,6 @@
 recursive-include template *.py
 exclude .pre-commit-config.yaml
+exclude *.bats
 include *.rst
 include VERSION
 include *.txt
