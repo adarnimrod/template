@@ -82,8 +82,6 @@ at: https://www.shore.co.il/git/.
 TODO
 ----
 
-- Fix test failure on Python 3.2
-  (https://travis-ci.org/adarnimrod/template/jobs/194581463).
 - Release on tagged commits to PyPI in Travis CI
   (https://docs.travis-ci.com/user/deployment/pypi/ and
   https://docs.travis-ci.com/user/encryption-keys/).
