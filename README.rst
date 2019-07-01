@@ -4,8 +4,9 @@ Template
 .. image:: https://travis-ci.org/adarnimrod/template.svg?branch=master
     :target: https://travis-ci.org/adarnimrod/template
 
-A CLI tool for generating files from Jinja2 templates and environment
-variables. Tested on Python versions 2.7, 3.4 and later.
+A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
+templates and environment variables. Tested on Python versions 2.7, 3.4 and
+later.
 
 Examples
 --------
@@ -54,8 +55,8 @@ docstrings in :code:`template/filters.py`.
 Testing
 -------
 
-Tests require Python 3.7, `pipenv <https://docs.pipenv.org>` and
-`Bats <https://github.com/bats-core/bats-core>`. Run the tests with the
+Tests require Python 3.7, `pipenv <https://docs.pipenv.org>`_ and
+`Bats <https://github.com/bats-core/bats-core>`_. Run the tests with the
 following commands:
 
 .. code:: shell
@@ -71,10 +72,11 @@ checked with all supported Python versions.
 Release
 -------
 
-Release requires Python 3.7 and `pipenv <https://docs.pipenv.org>`. To bump the
+Release requires Python 3.7 and `pipenv <https://docs.pipenv.org>`_. To bump the
 version run :code:`pipenv run bumpversion major|minor|patch` to update the
 version and git commit and tag. Then run :code:`pipenv run upload` to upload the
-new version to PyPI.
+new version to PyPI and :code:`git push --follow-tags` to push the git commit
+and tag.
 
 License
 -------
