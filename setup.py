@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="template",
-    version="0.4.7",
+    version="0.4.8",
     description="""A CLI tool for generating files from Jinja2 templates and
     environment variables.""",
     long_description=open("README.rst", "r").read(),
