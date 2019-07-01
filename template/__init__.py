@@ -16,7 +16,7 @@ import template.filters
 from jinja2 import Environment
 
 
-__version__ = "0.4.6"
+__version__ = "0.4.7"
 
 
 def render(template_string):
