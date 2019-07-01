@@ -5,7 +5,7 @@ Template
     :target: https://travis-ci.org/adarnimrod/template
 
 A CLI tool for generating files from Jinja2 templates and environment
-variables.
+variables. Tested on Python versions 2.7, 3.4 and later.
 
 Examples
 --------
@@ -54,16 +54,27 @@ docstrings in :code:`template/filters.py`.
 Testing
 -------
 
-Tests require Python 2.7, Python 3.3 or later, Tox and Bats and are run by
-running :code:`tox`. Also, Travis CI is used to test on multiple Python
-versions for every push.
+Tests require Python 3.7, `pipenv <https://docs.pipenv.org>` and
+`Bats <https://github.com/bats-core/bats-core>`. Run the tests with the
+following commands:
+
+.. code:: shell
+
+   pipenv run lint  # Pre-commit hooks.
+   pipenv run check  # Twine check.
+   pipenv run doctest  # Doc tests.
+   pipenv run bats  # Bats tests.
+
+Also, Travis CI is setup for this project so every push to this repository is
+checked with all supported Python versions.
 
 Release
 -------
 
-Releases require Python 2.7 or Python 3.3 or later and Tox. To release a new
-version bump the version in the :code:`VERSION` file and run :code:`tox -e
-release`.
+Release requires Python 3.7 and `pipenv <https://docs.pipenv.org>`. To bump the
+version run :code:`pipenv run bumpversion major|minor|patch` to update the
+version and git commit and tag. Then run :code:`pipenv run upload` to upload the
+new version to PyPI.
 
 License
 -------
@@ -79,8 +90,8 @@ Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
 at: https://www.shore.co.il/git/.
 
-TODO
-----
+Pending tasks
+-------------
 
 - Release on tagged commits to PyPI in Travis CI
   (https://docs.travis-ci.com/user/deployment/pypi/ and

@@ -1,29 +1,44 @@
+# vim:ff=unix ts=2 sw=2 ai expandtab
 ---
 language: python
-python: ["2.7", "3.4", "3.5", "3.6"]
-dist: trusty
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+dist: xenial
 sudo: false
 cache:
   - pip
+  - $HOME/.pre-commit
+
 matrix:
   include:
-    - python: "3.6"
-      env: TOXENV=docs
-    - python: "3.6"
-      env: TOXENV=bandit
-    - python: "3.6"
-      env: TOXENV=pre-commit
-  allow_failures:
-    - python: "3.2"
+    - python: "3.7"
+      env:
+        PIPENV_IGNORE_VIRTUALENVS: "1"
+      install:
+        - pipenv install --dev
+      addons:
+        apt:
+          packages:
+            - libdbus-1-dev
+            - libglib2.0-dev
+      script:
+        - pipenv run lint
+        - pipenv run check
 
 install:
-  - git clone --depth 1 https://github.com/sstephenson/bats "$HOME/bats"
-  - pip install tox-travis | cat
+  - git clone --depth 1 https://github.com/bats-core/bats-core "$HOME/bats"
+  - pip install . | cat
 
 env:
-    PATH: "$PATH:$HOME/bats/bin"
+  PATH: "$PATH:$HOME/bats/bin:$HOME/.local/bin"
+
 script:
-  - tox
+  - bats -t tests/
+  - python -m doctest template/*.py
 
 notifications:
   email: false

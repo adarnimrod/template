@@ -1,14 +1,70 @@
+# vim:ff=unix ts=2 sw=2 ai expandtab
+---
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    sha: v1.2.3
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.2.3
     hooks:
-    -   id: check-added-large-files
-    -   id: check-yaml
-    -   id: check-merge-conflict
-    -   id: flake8
-    -   id: check-symlinks
--   repo: https://github.com/ambv/black
-    sha: 18.5b0
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: trailing-whitespace
+  - repo: https://github.com/ambv/black
+    rev: 18.9b0
     hooks:
-    -   id: black
-        args: [--line-length=79]
+      - id: black
+        args:
+          - |
+              --line-length=79
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-markup
+    rev: v1.0.0
+    hooks:
+      - id: rst-linter
+  - repo: https://github.com/PyCQA/prospector
+    rev: 1.1.6.4
+    hooks:
+      - id: prospector
+        args:
+          - |-
+              --max-line-length=79
+          - |-
+              --tool=pyroma
+          - |-
+              --tool=dodgy
+        additional_dependencies:
+          - pyroma
+          - dodgy
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.7
+    hooks:
+      - id: flake8
+        args:
+          - |-
+            --max-line-length=79
+        additional_dependencies:
+          - flake8-bugbear
+  - repo: https://github.com/pre-commit/mirrors-pylint
+    rev: v2.3.1
+    hooks:
+      - id: pylint
+        args:
+          - |-
+            --disable=R0801
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.16.0
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.6.1
+    hooks:
+      - id: bandit
+  - repo: https://github.com/amperser/proselint/
+    rev: 0.10.2
+    hooks:
+      - id: proselint
+        types: [plain-text]
+        exclude: LICENSE|requirements
+  - repo: https://github.com/mgedmin/check-manifest
+    rev: "0.39"
+    hooks:
+      - id: check-manifest

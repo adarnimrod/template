@@ -1,27 +1,35 @@
 #!/usr/bin/env python
+# pylint: disable=missing-docstring
 from setuptools import setup, find_packages
 
 setup(
     name="template",
-    version=open("VERSION", "r").read(),
+    version="0.4.6",
     description="""A CLI tool for generating files from Jinja2 templates and
     environment variables.""",
     long_description=open("README.rst", "r").read(),
+    long_description_content_type="text/x-rst",
     url="https://www.shore.co.il/git/template",
     author="Nimrod Adar",
     author_email="nimrod@shore.co.il",
-    license="MIT",
+    license="AGPLv3+",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
         "Intended Audience :: System Administrators",
         "Topic :: Utilities",
+        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",  # noqa: E501 pylint: disable=line-too-long
     ],
     keywords="config configuration jinja template environment",
     packages=find_packages(),
     install_requires=["Jinja2", "PyYAML", "jmespath", "toml"],
-    extras_require={"dev": ["tox"]},
+    extras_require={"dev": ["pipenv"]},
     entry_points={"console_scripts": ["template=template:main"]},
 )

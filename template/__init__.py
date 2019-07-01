@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=import-error
 """Generate files from Jinja2 templates and environment variables."""
 
 from __future__ import (
@@ -6,26 +7,31 @@ from __future__ import (
     division,
     print_function,
     unicode_literals,
-)
-from jinja2 import Environment
+)  # pylint: disable=duplicate-code
 from os import environ
 from sys import stdin, stdout
 import argparse
 from argparse import ArgumentParser
 import template.filters
+from jinja2 import Environment
+
+
+__version__ = "0.4.6"
 
 
 def render(template_string):
     """Render the template."""
     env = Environment(autoescape=True)
     # Add all functions in template.filters as Jinja filters.
+    # pylint: disable=invalid-name
     for tf in filter(lambda x: not x.startswith("_"), dir(template.filters)):
-        env.filters[tf] = template.filters.__getattribute__(tf)
+        env.filters[tf] = getattr(template.filters, tf)
     t = env.from_string(template_string)
     return t.render(environ)
 
 
 def main():
+    """Main entrypoint."""
     parser = ArgumentParser(
         description="""A CLI tool for generating files from Jinja2 templates
         and environment variables."""

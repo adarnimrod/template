@@ -1,25 +1,29 @@
 #!/usr/bin/env python
+"""Filters for the template CLI."""
+# pylint: disable=import-error
+
+
 from __future__ import (
     absolute_import,
     division,
     print_function,
     unicode_literals,
-)
+)  # pylint: disable=duplicate-code
 
 
 def to_yaml(value):
-    """
+    r"""
     Converts given data structure to YAML form.
     Examples:
 
     >>> to_yaml([1,2,3])
-    '[1, 2, 3]\\n'
+    '- 1\n- 2\n- 3\n'
     >>> to_yaml({'a': 1, 'b': 2})
-    '{a: 1, b: 2}\\n'
+    'a: 1\nb: 2\n'
     >>> to_yaml({1: {'a': [1,2,3]}})
-    '1:\\n  a: [1, 2, 3]\\n'
+    '1:\n  a:\n  - 1\n  - 2\n  - 3\n'
     >>> to_yaml("abc")
-    'abc\\n...\\n'
+    'abc\n...\n'
     """
     from yaml import safe_dump
 
@@ -136,6 +140,6 @@ def jmespath(value, query):
     ...
     True
     """
-    import jmespath
+    import jmespath as jp
 
-    return jmespath.search(query, value)
+    return jp.search(query, value)
