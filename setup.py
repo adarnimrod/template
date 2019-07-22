@@ -17,7 +17,6 @@ setup(
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -29,7 +28,13 @@ setup(
     ],
     keywords="config configuration jinja template environment",
     packages=find_packages(),
-    install_requires=["Jinja2", "PyYAML", "jmespath", "toml"],
+    install_requires=[
+        "Jinja2",
+        "PyYAML",
+        "jmespath",
+        "toml",
+        "subprocess32>=3.5.0",
+    ],
     extras_require={"dev": ["pipenv"]},
     entry_points={"console_scripts": ["template=template:main"]},
 )

@@ -5,7 +5,7 @@ Template
     :target: https://travis-ci.org/adarnimrod/template
 
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
-templates and environment variables. Tested on Python versions 2.7, 3.4 and
+templates and environment variables. Tested on Python versions 2.7, 3.5 and
 later.
 
 Examples
@@ -48,6 +48,9 @@ The following Jinja filters were added:
 - :code:`from_toml`: Convert from toml.
 - :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
   query language.
+- :code:`run`: Runs a command and returns the stdout, stderr and returncode
+  using `run
+  <https://docs.python.org/3.5/library/subprocess.html?highlight=popen#subprocess.run>`_.
 
 Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/filters.py`.

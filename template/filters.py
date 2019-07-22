@@ -143,3 +143,26 @@ def jmespath(value, query):
     import jmespath as jp
 
     return jp.search(query, value)
+
+
+def run(*argv, **kwargs):
+    """
+    Runs a command and returns the stdout, stderr and returncode
+    using `run
+    <https://docs.python.org/3.5/library/subprocess.html?highlight=popen#subprocess.run>`_.
+    >>> run('ls')["returncode"] == 0
+    True
+    >>> 'SHELL' not in run('echo $SHELL', shell=True)['stdout']
+    True
+    >>> run(['ls', 'foo'])['returncode'] > 0
+    True
+    """
+    import subprocess32  # nosec
+
+    defaults = {"stdout": subprocess32.PIPE, "stderr": subprocess32.PIPE}
+    defaults.update(kwargs)
+    proc = subprocess32.run(*argv, **defaults).__dict__
+    if "text" not in kwargs or kwargs["text"]:
+        proc["stdout"] = proc["stdout"].decode()
+        proc["stderr"] = proc["stderr"].decode()
+    return proc
