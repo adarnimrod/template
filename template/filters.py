@@ -157,11 +157,16 @@ def run(*argv, **kwargs):
     >>> run(['ls', 'foo'])['returncode'] > 0
     True
     """
-    import subprocess32  # nosec
+    import sys
 
-    defaults = {"stdout": subprocess32.PIPE, "stderr": subprocess32.PIPE}
+    if sys.version_info[0] < 3:  # nosec
+        import subprocess32 as subprocess
+    else:
+        import subprocess
+
+    defaults = {"stdout": subprocess.PIPE, "stderr": subprocess.PIPE}
     defaults.update(kwargs)
-    proc = subprocess32.run(*argv, **defaults).__dict__
+    proc = subprocess.run(*argv, **defaults).__dict__  # nosec
     if "text" not in kwargs or kwargs["text"]:
         proc["stdout"] = proc["stdout"].decode()
         proc["stderr"] = proc["stderr"].decode()

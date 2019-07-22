@@ -33,7 +33,7 @@ setup(
         "PyYAML",
         "jmespath",
         "toml",
-        "subprocess32>=3.5.0",
+        "subprocess32>=3.5.0;python_version<'3.5'",
     ],
     extras_require={"dev": ["pipenv"]},
     entry_points={"console_scripts": ["template=template:main"]},
