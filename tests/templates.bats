@@ -12,3 +12,10 @@ export name='John'
     run cat "$BATS_TMPDIR/output"
     [ "$output" = "John" ]
 }
+
+@test "Render file in-place" {
+    cp "$BATS_TEST_DIRNAME/input" "$BATS_TMPDIR/inplace"
+    template --output "$BATS_TMPDIR/inplace" "$BATS_TMPDIR/inplace"
+    run cat "$BATS_TMPDIR/inplace"
+    [ "$output" = "John" ]
+}
