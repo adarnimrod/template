@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Filters for the template CLI."""
-# pylint: disable=import-error
+# pylint: disable=import-error, import-outside-toplevel
 
 
 from __future__ import (
@@ -166,7 +166,9 @@ def run(*argv, **kwargs):
 
     defaults = {"stdout": subprocess.PIPE, "stderr": subprocess.PIPE}
     defaults.update(kwargs)
-    proc = subprocess.run(*argv, **defaults).__dict__  # nosec
+    proc = subprocess.run(  # nosec, pylint: disable=subprocess-run-check
+        *argv, **defaults
+    ).__dict__
     if "text" not in kwargs or kwargs["text"]:
         proc["stdout"] = proc["stdout"].decode()
         proc["stderr"] = proc["stderr"].decode()

@@ -12,8 +12,8 @@ from os import environ
 from sys import stdin, stdout
 import argparse
 from argparse import ArgumentParser
-import template.filters
 from jinja2 import Environment
+import template.filters
 
 
 __version__ = "0.5.1"
