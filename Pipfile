@@ -18,9 +18,9 @@ python_version = "3.7"
 
 [scripts]
 lint = "pre-commit run --all-files"
-build = "sh -c 'git clean -fdX && python setup.py bdist_wheel'"
+build = "python setup.py bdist_wheel"
 clean = "git clean -fdX"
-upload = "sh -c 'git clean -fdX && python setup.py bdist_wheel && twine upload -s dist/*'"
+upload = "sh -c 'twine upload -s dist/*'"
 bats = "bats -t tests/"
 check = "sh -c 'rm -rf dist/ && python setup.py bdist_wheel && twine check dist/*'"
 doctest = "sh -c 'python -m doctest template/*.py'"
