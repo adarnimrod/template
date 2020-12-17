@@ -1,12 +1,11 @@
 Template
 ########
 
-.. image:: https://travis-ci.org/adarnimrod/template.svg?branch=master
-    :target: https://travis-ci.org/adarnimrod/template
+.. image:: https://git.shore.co.il/nimrod/template/badges/master/pipeline.svg
+    :target: https://git.shore.co.il/nimrod/template/-/commits/master
 
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
-templates and environment variables. Tested on Python versions 2.7, 3.5 and
-later.
+templates and environment variables.
 
 Examples
 --------
@@ -50,7 +49,7 @@ The following Jinja filters were added:
   query language.
 - :code:`run`: Runs a command and returns the stdout, stderr and returncode
   using `run
-  <https://docs.python.org/3.5/library/subprocess.html?highlight=popen#subprocess.run>`_.
+  <https://docs.python.org/3.6/library/subprocess.html?highlight=popen#subprocess.run>`_.
 
 Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/filters.py`.
@@ -58,28 +57,28 @@ docstrings in :code:`template/filters.py`.
 Testing
 -------
 
-Tests require Python 3.7, `pipenv <https://docs.pipenv.org>`_ and
-`Bats <https://github.com/bats-core/bats-core>`_. Run the tests with the
+Tests require `Pipenv <https://docs.pipenv.org>`_ and `Bats
+<https://github.com/bats-core/bats-core>`_. Run the tests with the
 following commands:
 
 .. code:: shell
 
    pipenv run lint  # Pre-commit hooks.
-   pipenv run check  # Twine check.
    pipenv run doctest  # Doc tests.
    pipenv run bats  # Bats tests.
+   pipenv run check  # Twine check.
 
-Also, Travis CI is setup for this project so every push to this repository is
-checked with all supported Python versions.
+Also, GitLab CI is setup for this project so every push to this repository is
+checked with all Python 2.7, Python 3.6 and later and all supported versions of
+PyPy.
 
 Release
 -------
 
-Release requires Python 3.7 and `pipenv <https://docs.pipenv.org>`_. To bump the
-version run :code:`pipenv run bumpversion major|minor|patch` to update the
-version and git commit and tag. Then run :code:`pipenv run upload` to upload the
-new version to PyPI and :code:`git push --follow-tags` to push the git commit
-and tag.
+Release requires `Pipenv <https://docs.pipenv.org>`_. To bump the version run
+:code:`pipenv run bumpversion major|minor|patch` to update the version and git
+commit and tag. Then run :code:`pipenv run upload` to upload the new version to
+PyPI and :code:`git push --follow-tags` to push the git commit and tag.
 
 License
 -------
@@ -93,11 +92,9 @@ Author
 Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <https://www.shore.co.il/>`_. Patches are welcome via `git send-email
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
-at: https://www.shore.co.il/git/.
+at: https://git.shore.co.il/nimrod/.
 
 Pending tasks
 -------------
 
-- Release on tagged commits to PyPI in Travis CI
-  (https://docs.travis-ci.com/user/deployment/pypi/ and
-  https://docs.travis-ci.com/user/encryption-keys/).
+- Release on tagged commits to PyPI in CI.
