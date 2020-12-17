@@ -2,7 +2,7 @@ recursive-include template *.py
 include *.rst
 include *.txt
 exclude .pre-commit-config.yaml
-exclude .travis.yml
+exclude .gitlab-ci.yml
 exclude .gitignore
 exclude Pipfile*
 exclude tests

@@ -1,0 +1,69 @@
+---
+stages:
+  - lint
+  - test
+
+pre-commit:
+  stage: lint
+  image: adarnimrod/ci-images:pre-commit
+  variables: &variables
+    XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
+    PIPENV_VENV_IN_PROJECT: "1"
+    LANG: C.UTF-8
+  before_script:
+    - apt-get update
+    - apt-get install -y libdbus-1-dev
+    - pipenv install --dev && rm pyproject.toml
+  script:
+    - pipenv run lint
+  cache: &cache
+    key: "$CI_JOB_NAME"
+    paths:
+      - .cache/
+      - .venv/
+
+test:
+  stage: test
+  image: $project:$version-slim
+  allow_failure: true
+  before_script:
+    - apt-get update
+    - >-
+      apt-get install -y
+      bats
+      build-essential
+      git
+      libdbus-1-dev
+      libffi-dev
+      libglib2.0-dev
+      libssl-dev
+    - |-
+      if [ "$project" = 'pypy' ]
+      then
+        ln -sf /opt/pypy/bin/pypy "/usr/local/bin/python$version"
+      fi
+    - pip install pipenv
+    - pipenv install --dev --python=$version
+  script:
+    - pipenv run bats
+    - pipenv run check
+    - pipenv run doctest
+    - pipenv run build
+  variables:
+    <<: *variables
+    PIPENV_SKIP_LOCK: 1
+  cache: *cache
+  parallel:
+    matrix:
+      - project: python
+        version:
+          - "2.7"
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+      - project: pypy
+        version:
+          - "2.7"
+          - "3.6"
+          - "3.7"
