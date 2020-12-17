@@ -5,16 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 pre-commit = "*"
-bumpversion = "*"
+bumpversion = {version = "*", markers="python_version >= '3.6'"}
 twine = "*"
-dbus-python = "*"
-keyring = "*"
 template = {editable = true,path = "."}
-
-[packages]
-
-[requires]
-python_version = "3.7"
 
 [scripts]
 lint = "pre-commit run --all-files"
