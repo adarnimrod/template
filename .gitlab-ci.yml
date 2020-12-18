@@ -75,7 +75,7 @@ upload:
   script:
     - mv "$pypirc" $HOME/.pypirc
     - pipenv run build
-    - pipenv run upload
+    - pipenv run upload dist/*
   variables: *variables
   cache: *cache
   rules:

@@ -77,8 +77,10 @@ Release
 
 Release requires `Pipenv <https://docs.pipenv.org>`_. To bump the version run
 :code:`pipenv run bumpversion major|minor|patch` to update the version and git
-commit and tag. Then run :code:`pipenv run upload` to upload the new version to
-PyPI and :code:`git push --follow-tags` to push the git commit and tag.
+commit and tag the changes, then run :code:`git push --follow-tags` to push the
+git commit and tag. The GitLab CI will then build and upload a release to PyPI.
+To manually upload to PyPI run :code:`pipenv run build` to build the Python
+package and :code:`pipenv run upload -s dist/*` to upload a signed version.
 
 License
 -------

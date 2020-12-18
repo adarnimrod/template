@@ -13,7 +13,7 @@ template = {editable = true,path = "."}
 lint = "pre-commit run --all-files"
 build = "python setup.py bdist_wheel"
 clean = "git clean -fdX"
-upload = "sh -c 'twine upload dist/*'"
+upload = "twine upload"
 bats = "bats -t tests/"
 check = "sh -c 'rm -rf dist/ && python setup.py bdist_wheel && twine check dist/*'"
 doctest = "sh -c 'python -m doctest template/*.py'"
