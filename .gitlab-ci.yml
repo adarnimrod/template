@@ -32,8 +32,8 @@ test:
     - pip install pipenv
     - pipenv install --dev --python=$version
   script:
-    - pipenv run bats
-    - pipenv run doctest
+    - pipenv run bats | tee results.tap
+    - pipenv run doctest --junit-xml results/doctest.xml
   after_script:
     - juxr tap --name bats --output results/ -- cat results.tap
   variables:
