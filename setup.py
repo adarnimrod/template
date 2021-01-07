@@ -9,7 +9,7 @@ setup(
     environment variables.""",
     long_description=open("README.rst", "r").read(),
     long_description_content_type="text/x-rst",
-    url="https://www.shore.co.il/git/template",
+    url="https://git.shore.co.il/nimrod/template",
     author="Nimrod Adar",
     author_email="nimrod@shore.co.il",
     license="AGPLv3+",
