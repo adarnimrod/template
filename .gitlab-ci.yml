@@ -16,31 +16,17 @@ test:
       apt-get install -y
       bats
       build-essential
-      git
-      libdbus-1-dev
-      libffi-dev
-      libglib2.0-dev
-      libssl-dev
       wget
     # yamllint disable-line rule:line-length
     - wget https://github.com/cloudbees-oss/juxr/releases/download/0.1.22/juxr-x86_64-unknown-linux-gnu.tar.gz -O - | tar -xzC /usr/local/bin
-    - |-
-      if [ "$project" = 'pypy' ]
-      then
-        ln -sf /opt/pypy/bin/pypy "/usr/local/bin/python$version"
-      fi
-    - pip install pipenv
-    - pipenv install --dev --python=$version
+    - pip install dist/*.whl
+    - pip install pytest six
   script:
-    - pipenv run bats | tee results.tap
-    - pipenv run doctest --junit-xml results/doctest.xml
+    - juxr tap --name bats --output results/ -- bats tests/
+    - pytest --doctest-modules --junit-xml results/doctest.xml
   after_script:
-    - juxr tap --name bats --output results/ -- cat results.tap
   variables:
     XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
-    PIPENV_VENV_IN_PROJECT: "1"
-    LANG: C.UTF-8
-    PIPENV_SKIP_LOCK: 1
   cache:
     key: "$CI_JOB_NAME"
     paths:
@@ -49,6 +35,9 @@ test:
   artifacts:
     reports:
       junit: results/*.xml
+  needs:
+    - job: build-wheel
+      artifacts: true
   parallel:
     matrix:
       - project: python
