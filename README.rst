@@ -57,8 +57,8 @@ docstrings in :code:`template/filters.py`.
 Testing
 -------
 
-Tests require `Pipenv <https://docs.pipenv.org>`_ and `Bats
-<https://github.com/bats-core/bats-core>`_. Run the tests with the
+Tests require Pipenv_ and
+`Bats <https://github.com/bats-core/bats-core>`_. Run the tests with the
 following commands:
 
 .. code:: shell
@@ -75,7 +75,7 @@ PyPy.
 Release
 -------
 
-Release requires `Pipenv <https://docs.pipenv.org>`_. To bump the version run
+Release requires Pipenv_. To bump the version run
 :code:`pipenv run bumpversion major|minor|patch` to update the version and git
 commit and tag the changes, then run :code:`git push --follow-tags` to push the
 git commit and tag. The GitLab CI will then build and upload a release to PyPI.
@@ -95,3 +95,5 @@ Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <https://www.shore.co.il/>`_. Patches are welcome via `git send-email
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
 at: https://git.shore.co.il/nimrod/.
+
+.. _Pipenv: https://docs.pipenv.org
