@@ -5,9 +5,10 @@ verify_ssl = true
 
 [dev-packages]
 pre-commit = "*"
-bumpversion = {version = "*", markers="python_version >= '3.6'"}
+bumpversion = {version = "*",markers = "python_version >= '3.6'"}
 twine = "*"
 template = {editable = true,path = "."}
+pytest = "*"
 
 [scripts]
 lint = "pre-commit run --all-files"
@@ -16,4 +17,4 @@ clean = "git clean -fdX"
 upload = "twine upload"
 bats = "bats -t tests/"
 check = "sh -c 'rm -rf dist/ && python setup.py bdist_wheel && twine check dist/*'"
-doctest = "sh -c 'python -m doctest template/*.py'"
+doctest = "pytest --doctest-modules --junit-xml results/doctest.xml"
