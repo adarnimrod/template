@@ -3,6 +3,7 @@ Template
 
 .. image:: https://git.shore.co.il/nimrod/template/badges/master/pipeline.svg
     :target: https://git.shore.co.il/nimrod/template/-/commits/master
+    :alt: pipeline status
 
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
 templates and environment variables.
