@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # pylint: disable=missing-docstring
 from setuptools import setup, find_packages
+from template import __doc__ as description
 
 setup(
     name="template",
     version="0.6.4",
-    description="""A CLI tool for generating files from Jinja2 templates and
-    environment variables.""",
+    description=description,
     long_description=open("README.rst", "r").read(),
     long_description_content_type="text/x-rst",
     url="https://git.shore.co.il/nimrod/template",

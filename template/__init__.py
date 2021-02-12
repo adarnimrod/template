@@ -10,11 +10,18 @@ from __future__ import (
     unicode_literals,
 )  # pylint: disable=duplicate-code
 from os import environ
-from sys import stdin, stdout
+import sys
 import argparse
 from argparse import ArgumentParser
-from jinja2 import Environment
 import template.filters
+
+# I ignore import errors here and fail on them later in the main function so
+# the module can be imported by the setup.py with jinja missing so the
+# docstring can be used as the package description.
+try:
+    from jinja2 import Environment
+except ImportError:
+    pass
 
 
 __version__ = "0.6.4"
@@ -47,10 +54,16 @@ def main():
         type=argparse.FileType("w"),
     )
     args = parser.parse_args()
-    infd = args.filename if args.filename else stdin
-    outfd = args.output if args.output else stdout
+    infd = args.filename if args.filename else sys.stdin
+    outfd = args.output if args.output else sys.stdout
     print(render(infd.read()), file=outfd)
 
 
 if __name__ == "__main__":
+    if "Environment" not in dir():
+        print(
+            "Failed to import jinja2, is the package installed?",
+            file=sys.stderr,
+        )
+        sys.exit(2)
     main()
