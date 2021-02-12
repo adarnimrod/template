@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # pylint: disable=import-error
-"""Generate files from Jinja2 templates and environment variables."""
+"""A CLI tool for generating files from Jinja2 templates and environment
+variables."""
 
 from __future__ import (
     absolute_import,
@@ -32,10 +33,7 @@ def render(template_string):
 
 def main():
     """Main entrypoint."""
-    parser = ArgumentParser(
-        description="""A CLI tool for generating files from Jinja2 templates
-        and environment variables."""
-    )
+    parser = ArgumentParser(description=__doc__)
     parser.add_argument(
         "filename",
         help="Input filename",
