@@ -7,6 +7,11 @@ include:
   - project: shore/ci-templates
     file: templates/gitlab-release.yml
 
+install-wheel:
+  extends: .install-wheel
+  script:
+    - template --help
+
 test:
   stage: test
   image: $project:$version-slim
