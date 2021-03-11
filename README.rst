@@ -20,6 +20,24 @@ Template
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
 templates and environment variables.
 
+
+Installation
+------------
+
+.. code:: shell
+
+    pip install template[all]
+
+
+This will install Template along with the dependencies for all of the filters
+available with it. However, you can use narrower specifiers if you want to avoid
+a specifc dependency (the filters listed below include the needed specifier).
+In previous versions of Template all of the dependencies were required, so to
+avoid breakage this behavior will be be kept. However, this will change in a
+later release so the keep the expected behavior please update your project's
+dependencies.
+
+
 Examples
 --------
 
@@ -52,14 +70,18 @@ Jinja filters
 
 The following Jinja filters were added:
 
-- :code:`to_yaml`: Convert to yaml.
-- :code:`from_yaml`: Convert from yaml.
+- :code:`to_yaml`: Convert to yaml (requires the :code:`yaml` package
+  specifier).
+- :code:`from_yaml`: Convert from yaml (requires the :code:`yaml` package
+  specifier).
 - :code:`to_json`: Convert to json.
 - :code:`from_json`: Convert from json.
-- :code:`to_toml`: Convert to toml.
-- :code:`from_toml`: Convert from toml.
+- :code:`to_toml`: Convert to toml (requires the :code:`toml` package
+  specifier).
+- :code:`from_toml`: Convert from toml (requires the :code:`toml` package
+  specifier).
 - :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
-  query language.
+  query language (requires the :code:`jmespath` package specifier).
 - :code:`run`: Runs a command and returns the stdout, stderr and returncode
   using `run
   <https://docs.python.org/3.6/library/subprocess.html?highlight=popen#subprocess.run>`_.

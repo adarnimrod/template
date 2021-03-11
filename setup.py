@@ -36,6 +36,12 @@ setup(
         "toml",
         "subprocess32>=3.5.0;python_version<'3.5'",
     ],
-    extras_require={"dev": ["pipenv"]},
+    extras_require={
+        "all": ["PyYAML", "jmespath", "toml"],
+        "dev": ["pipenv"],
+        "jmespath": ["jmespath"],
+        "toml": ["toml"],
+        "yaml": ["PyYAML"],
+    },
     entry_points={"console_scripts": ["template=template:main"]},
 )
