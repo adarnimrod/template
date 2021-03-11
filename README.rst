@@ -5,6 +5,18 @@ Template
     :target: https://git.shore.co.il/nimrod/template/-/commits/master
     :alt: pipeline status
 
+.. image:: https://img.shields.io/pypi/v/template.svg
+    :target: https://pypi.org/project/template/
+    :alt: Latest version on PyPI
+
+.. image:: https://img.shields.io/pypi/l/template.svg
+    :target: http://www.gnu.org/licenses/agpl-3.0.en.html
+    :alt: Project license
+
+.. image:: https://img.shields.io/pypi/dd/template.svg
+    :target: https://pypistats.org/packages/template
+    :alt: PyPI Stats
+
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
 templates and environment variables.
 
