@@ -15,7 +15,11 @@ setup(
     license="AGPLv3+",
     classifiers=[
         "Development Status :: 4 - Beta",
+        "Environment :: Console",
         "Intended Audience :: Developers",
+        "Intended Audience :: Information Technology",
+        "Intended Audience :: System Administrators",
+        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",  # noqa: E501 pylint: disable=line-too-long
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
@@ -23,9 +27,10 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
-        "Intended Audience :: System Administrators",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Topic :: Text Processing",
         "Topic :: Utilities",
-        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",  # noqa: E501 pylint: disable=line-too-long
     ],
     keywords="config configuration jinja template environment",
     packages=find_packages(),

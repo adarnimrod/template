@@ -17,6 +17,14 @@ Template
     :target: https://pypistats.org/packages/template
     :alt: PyPI Stats
 
+|
+
+.. image:: https://img.shields.io/pypi/implementation/template.svg
+    :alt: Supported Python implementations
+
+.. image:: https://img.shields.io/pypi/pyversions/template.svg
+    :alt: Supported Python versions
+
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
 templates and environment variables.
 
