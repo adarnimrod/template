@@ -20,9 +20,11 @@ Template
 |
 
 .. image:: https://img.shields.io/pypi/implementation/template.svg
+    :target: https://git.shore.co.il/nimrod/template/-/pipelines/latest
     :alt: Supported Python implementations
 
 .. image:: https://img.shields.io/pypi/pyversions/template.svg
+    :target: https://git.shore.co.il/nimrod/template/-/pipelines/latest
     :alt: Supported Python versions
 
 A CLI tool for generating files from `Jinja2 <http://jinja.pocoo.org/>`_
