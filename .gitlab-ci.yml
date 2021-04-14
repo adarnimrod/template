@@ -24,7 +24,7 @@ test:
       wget
     # yamllint disable-line rule:line-length
     - wget https://github.com/cloudbees-oss/juxr/releases/download/0.1.22/juxr-x86_64-unknown-linux-gnu.tar.gz -O - | tar -xzC /usr/local/bin
-    - pip install dist/*.whl
+    - find dist/*.whl -exec pip install {}[all] \;
     - pip install pytest six
   script:
     - juxr tap --name bats --output results/ -- bats tests/
