@@ -173,3 +173,83 @@ def run(*argv, **kwargs):
         proc["stdout"] = proc["stdout"].decode()
         proc["stderr"] = proc["stderr"].decode()
     return proc
+
+
+def ipaddress(addr, version=None, flags=0):
+    """
+    Returns an IPAddress object from the netaddr library.
+
+    >>> ip = ipaddress('10.0.0.1')
+    >>> type(ip)
+    <class 'netaddr.ip.IPAddress'>
+    >>> ip.is_private()
+    True
+    """
+
+    from netaddr import IPAddress
+
+    return IPAddress(addr, version, flags)
+
+
+def ipglob(glob):
+    """
+    Returns an IPGlob object from the netaddr library.
+
+    >>> glob = ipglob("192.168.32.*")
+    >>> type(glob)
+    <class 'netaddr.ip.glob.IPGlob'>
+    >>> glob.is_private()
+    True
+    """
+
+    from netaddr import IPGlob
+
+    return IPGlob(glob)
+
+
+def ipnetwork(addr, implicit_prefix=False, version=None, flags=0):
+    """
+    Returns an IPNetwork object from the netaddr library.
+
+    >>> net = ipnetwork("172.32.0.0/24")
+    >>> type(net)
+    <class 'netaddr.ip.IPNetwork'>
+    >>> net.is_private()
+    False
+    """
+
+    from netaddr import IPNetwork
+
+    return IPNetwork(addr, implicit_prefix, version, flags)
+
+
+def iprange(start, end, flags=0):
+    """
+    Returns an IPRange object from the netaddr library.
+
+    >>> range = iprange("1.2.3.0", "1.2.3.255")
+    >>> type(range)
+    <class 'netaddr.ip.IPRange'>
+    >>> len(range)
+    256
+    """
+
+    from netaddr import IPRange
+
+    return IPRange(start, end, flags)
+
+
+def ipset(iterable=None, flags=0):
+    """
+    Returns an IPSet object from the netaddr library.
+
+    >>> ipset = ipset(["10.0.0.0/16"])
+    >>> type(ipset)
+    <class 'netaddr.ip.sets.IPSet'>
+    >>> ipaddress('10.0.0.1') in ipset
+    True
+    """
+
+    from netaddr import IPSet
+
+    return IPSet(iterable, flags)

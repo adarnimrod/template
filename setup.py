@@ -42,9 +42,15 @@ setup(
         "subprocess32>=3.5.0;python_version<'3.5'",
     ],
     extras_require={
-        "all": ["PyYAML", "jmespath", "toml"],
+        "all": [
+            "jmespath",
+            "netaddr",
+            "PyYAML",
+            "toml",
+        ],
         "dev": ["pipenv"],
         "jmespath": ["jmespath"],
+        "netaddr": ["netaddr"],
         "toml": ["toml"],
         "yaml": ["PyYAML"],
     },

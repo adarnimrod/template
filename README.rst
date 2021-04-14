@@ -95,6 +95,14 @@ The following Jinja filters were added:
 - :code:`run`: Runs a command and returns the stdout, stderr and returncode
   using `run
   <https://docs.python.org/3.6/library/subprocess.html?highlight=popen#subprocess.run>`_.
+- :code:`ipaddress`: Returns an IPAddress object from the netaddr_ library
+  (requires the :code:`netaddr` package specifier).
+- :code:`ipnetwork`: Returns an IPNetwork object from the netaddr_ library
+  (requires the :code:`netaddr` package specifier).
+- :code:`iprange`: Returns an IPRange object from the netaddr_ library.
+  (requires the :code:`netaddr` package specifier).
+- :code:`ipglob`: Returns an IPGlob object from the netaddr_ library (requires
+  the :code:`netaddr` package specifier).
 
 Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/filters.py`.
@@ -141,4 +149,5 @@ Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
 at: https://git.shore.co.il/nimrod/.
 
+.. _netaddr: https://netaddr.readthedocs.io/
 .. _Pipenv: https://docs.pipenv.org
