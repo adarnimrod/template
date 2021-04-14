@@ -5,7 +5,7 @@ from template import __doc__ as description
 
 setup(
     name="template",
-    version="0.6.6",
+    version="0.7.0",
     description=description,
     long_description=open("README.rst", "r").read(),
     long_description_content_type="text/x-rst",
