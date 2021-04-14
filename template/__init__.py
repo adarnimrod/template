@@ -53,7 +53,15 @@ def main():
         help="Output to filename",
         type=argparse.FileType("w"),
     )
+    parser.add_argument(
+        "-V",
+        "--version",
+        help="Template version",
+        action="store_true",
+    )
     args = parser.parse_args()
+    if args.version:
+        print("Template version {}.".format(__version__))
     infd = args.filename if args.filename else sys.stdin
     outfd = args.output if args.output else sys.stdout
     print(render(infd.read()), file=outfd)

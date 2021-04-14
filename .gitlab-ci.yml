@@ -11,6 +11,7 @@ install-wheel:
   extends: .install-wheel
   script:
     - template --help
+    - template --version
 
 test:
   stage: test
