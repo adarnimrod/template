@@ -62,6 +62,7 @@ def main():
     args = parser.parse_args()
     if args.version:
         print("Template version {}.".format(__version__))
+        sys.exit()
     infd = args.filename if args.filename else sys.stdin
     outfd = args.output if args.output else sys.stdout
     print(render(infd.read()), file=outfd)
