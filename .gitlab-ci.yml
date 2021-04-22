@@ -6,6 +6,10 @@ include:
     file: templates/python.yml
   - project: shore/ci-templates
     file: templates/gitlab-release.yml
+  - template: Security/SAST.gitlab-ci.yml
+
+variables:
+  SAST_EXPERIMENTAL_FEATURES: "true"
 
 install-wheel:
   extends: .install-wheel
