@@ -162,7 +162,7 @@ def run(*argv, **kwargs):
     if sys.version_info[0] < 3:  # nosec
         import subprocess32 as subprocess
     else:
-        import subprocess
+        import subprocess  # nosemgrep: rules.bandit.B40
 
     defaults = {"stdout": subprocess.PIPE, "stderr": subprocess.PIPE}
     defaults.update(kwargs)

@@ -18,7 +18,7 @@ import template.filters
 # I ignore import errors here and fail on them later in the main function so
 # the module can be imported by the setup.py with jinja missing so the
 # docstring can be used as the package description.
-try:
+try:  # nosemgrep: rules.bandit.B110
     from jinja2 import Environment
 except ImportError:
     pass
