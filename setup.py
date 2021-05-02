@@ -11,10 +11,10 @@ extras_require = {
     "yaml": ["PyYAML"],
 }
 
-all_requires = [v for k, l in extras_require.items() if k != "dev" for v in l]
-# There may be duplicates, let's remove those.
-all_requires = list(set(all_requires))
-extras_require["all"] = all_requires
+# Flatten the list and avoid duplicates.
+extras_require["all"] = list(
+    {v for k, l in extras_require.items() if k != "dev" for v in l}
+)
 
 setup(
     name="template",
