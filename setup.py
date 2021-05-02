@@ -3,6 +3,19 @@
 from setuptools import setup, find_packages
 from template import __doc__ as description
 
+extras_require = {
+    "dev": ["pipenv"],
+    "jmespath": ["jmespath"],
+    "netaddr": ["netaddr"],
+    "toml": ["toml"],
+    "yaml": ["PyYAML"],
+}
+
+all_requires = [v for k, l in extras_require.items() if k != "dev" for v in l]
+# There may be duplicates, let's remove those.
+all_requires = list(set(all_requires))
+extras_require["all"] = all_requires
+
 setup(
     name="template",
     version="0.7.2",
@@ -41,18 +54,6 @@ setup(
         "toml",
         "subprocess32>=3.5.0;python_version<'3.5'",
     ],
-    extras_require={
-        "all": [
-            "jmespath",
-            "netaddr",
-            "PyYAML",
-            "toml",
-        ],
-        "dev": ["pipenv"],
-        "jmespath": ["jmespath"],
-        "netaddr": ["netaddr"],
-        "toml": ["toml"],
-        "yaml": ["PyYAML"],
-    },
+    extras_require=extras_require,
     entry_points={"console_scripts": ["template=template:main"]},
 )
