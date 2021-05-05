@@ -44,7 +44,7 @@ available with it. However, you can use narrower specifiers if you want to avoid
 a specifc dependency (the filters listed below include the needed specifier).
 In previous versions of Template all of the dependencies were required, so to
 avoid breakage this behavior will be be kept. However, this will change in a
-later release so the keep the expected behavior please update your project's
+later release so to the keep the expected behavior please update your project's
 dependencies.
 
 
