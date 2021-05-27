@@ -13,7 +13,7 @@ Template
     :target: http://www.gnu.org/licenses/agpl-3.0.en.html
     :alt: Project license
 
-.. image:: https://img.shields.io/pypi/dd/template.svg
+.. image:: https://img.shields.io/pypi/dm/template.svg
     :target: https://pypistats.org/packages/template
     :alt: PyPI Stats
 
