@@ -12,7 +12,6 @@ from __future__ import (
 from os import environ
 import sys
 import argparse
-from argparse import ArgumentParser
 import template.filters
 
 # I ignore import errors here and fail on them later in the main function so
@@ -40,7 +39,7 @@ def render(template_string):
 
 def main():
     """Main entrypoint."""
-    parser = ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "filename",
         help="Input filename",
