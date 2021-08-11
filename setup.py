@@ -18,7 +18,7 @@ extras_require["all"] = list(
 
 setup(
     name="template",
-    version="0.7.2",
+    version="0.7.3",
     description=description,
     long_description=open("README.rst", "r").read(),
     long_description_content_type="text/x-rst",
