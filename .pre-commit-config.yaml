@@ -40,7 +40,7 @@ repos:
       - id: rst-linter
 
   - repo: https://github.com/myint/rstcheck.git
-    rev: 3f92957478422df87bd730abde66f089cc1ee19b
+    rev: 3f92957478422df87bd730abde66f089cc1ee19b  # pragma: allowlist secret
     hooks:
       - id: rstcheck
 
