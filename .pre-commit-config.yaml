@@ -94,3 +94,8 @@ repos:
         args:
           - "--server"
           - https://git.shore.co.il
+
+  - repo: https://github.com/codespell-project/codespell.git
+    rev: v2.1.0
+    hooks:
+      - id: codespell

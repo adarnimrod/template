@@ -41,7 +41,7 @@ Installation
 
 This will install Template along with the dependencies for all of the filters
 available with it. However, you can use narrower specifiers if you want to avoid
-a specifc dependency (the filters listed below include the needed specifier).
+a specific dependency (the filters listed below include the needed specifier).
 In previous versions of Template all of the dependencies were required, so to
 avoid breakage this behavior will be be kept. However, this will change in a
 later release so to the keep the expected behavior please update your project's
