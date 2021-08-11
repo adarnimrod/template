@@ -5,7 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pre-commit = "*"
-bumpversion = {version = "*",markers = "python_version >= '3.6'"}
+bump2version = {version = "*",markers = "python_version >= '3.6'"}
 twine = "*"
 template = {editable = true,path = "."}
 pytest = "*"
