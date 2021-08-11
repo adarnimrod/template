@@ -42,10 +42,11 @@ Installation
 This will install Template along with the dependencies for all of the filters
 available with it. However, you can use narrower specifiers if you want to avoid
 a specific dependency (the filters listed below include the needed specifier).
-In previous versions of Template all of the dependencies were required, so to
-avoid breakage this behavior will be be kept. However, this will change in a
-later release so to the keep the expected behavior please update your project's
-dependencies.
+In previous releases of Template all of the dependencies were required. To not
+break existing templates, for the foreseeable future those dependencies will
+remain a requirement and new dependencies for specific filters will be optional.
+This will change in the 0.9 release where all filter specific dependencies will
+be optional. Please update your project before that happens.
 
 
 Examples
@@ -64,8 +65,8 @@ Examples
 
       optional arguments:
         -h, --help            show this help message and exit
-          -o OUTPUT, --output OUTPUT
-                                  Output to filename
+        -o OUTPUT, --output OUTPUT
+                              Output to filename
     $ export name='John'
     $ echo 'Hello {{ name if name is defined else 'world' }}. | template
     Hello John.
