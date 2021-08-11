@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
@@ -15,19 +15,19 @@ repos:
       - id: detect-secrets
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.1
+    rev: v1.26.2
     hooks:
       - id: yamllint
 
   - repo: https://github.com/amperser/proselint/
-    rev: 0.10.2
+    rev: 0.11.3
     hooks:
       - id: proselint
         types: [plain-text]
         exclude: LICENSE
 
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 21.7b0
     hooks:
       - id: black
         args:
@@ -72,7 +72,7 @@ repos:
           - pyroma
 
   - repo: https://gitlab.com/pycqa/flake8.git
-    rev: 3.9.1
+    rev: 3.9.2
     hooks:
       - id: flake8
         args:
