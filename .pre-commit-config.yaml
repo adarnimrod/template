@@ -80,6 +80,7 @@ repos:
             --doctests
         additional_dependencies:
           - flake8-bugbear
+          - tryceratops
 
   - repo: https://github.com/mgedmin/check-manifest
     rev: '0.46'
