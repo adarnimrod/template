@@ -81,6 +81,8 @@ Jinja filters
 
 The following Jinja filters were added:
 
+- :code:`combine`: Merges 2 dictionaries with the 2nd overriding the 1st.
+  Returns the result.
 - :code:`to_yaml`: Convert to yaml (requires the :code:`yaml` package
   specifier).
 - :code:`from_yaml`: Convert from yaml (requires the :code:`yaml` package
@@ -94,8 +96,8 @@ The following Jinja filters were added:
 - :code:`jmespath`: Queries data using the `JMESPath <http://jmespath.org/>`_
   query language (requires the :code:`jmespath` package specifier).
 - :code:`run`: Runs a command and returns the stdout, stderr and returncode
-  using `run
-  <https://docs.python.org/3.6/library/subprocess.html?highlight=popen#subprocess.run>`_.
+  using run_. This filter is replaced with the :code:`run` function and will
+  be removed in the 0.10 release.
 - :code:`ipaddress`: Returns an IPAddress object from the netaddr_ library
   (requires the :code:`netaddr` package specifier).
 - :code:`ipnetwork`: Returns an IPNetwork object from the netaddr_ library
@@ -104,9 +106,20 @@ The following Jinja filters were added:
   (requires the :code:`netaddr` package specifier).
 - :code:`ipglob`: Returns an IPGlob object from the netaddr_ library (requires
   the :code:`netaddr` package specifier).
+- :code:`ipset`: Returns an IPSet object from the netaddr_ library (requires
+  the :code:`netaddr` package specifier).
 
 Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/filters.py`.
+
+Jinja functions
+---------------
+
+- :code:`run`: Runs a command and returns the stdout, stderr and returncode
+  using run_. This function replaces the :code:`run` filter.
+
+Example usage can be seen in :code:`tests` and for specific filters in the
+docstrings in :code:`template/functions.py`.
 
 Testing
 -------
@@ -152,3 +165,4 @@ at: https://git.shore.co.il/nimrod/.
 
 .. _netaddr: https://netaddr.readthedocs.io/
 .. _Pipenv: https://docs.pipenv.org
+.. _run: https://docs.python.org/3.6/library/subprocess.html?highlight=popen#subprocess.run

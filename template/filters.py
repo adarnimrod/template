@@ -10,6 +10,8 @@ from __future__ import (
     unicode_literals,
 )  # pylint: disable=duplicate-code
 
+from template.functions import run  # noqa: F401 pylint: disable=unused-import
+
 
 def to_yaml(value):
     r"""
@@ -143,36 +145,6 @@ def jmespath(value, query):
     import jmespath as jp
 
     return jp.search(query, value)
-
-
-def run(*argv, **kwargs):
-    """
-    Runs a command and returns the stdout, stderr and returncode
-    using `run
-    <https://docs.python.org/3.5/library/subprocess.html?highlight=popen#subprocess.run>`_.
-    >>> run('ls')["returncode"] == 0
-    True
-    >>> 'SHELL' not in run('echo $SHELL', shell=True)['stdout']
-    True
-    >>> run(['ls', 'foo'])['returncode'] > 0
-    True
-    """
-    import sys
-
-    if sys.version_info[0] < 3:  # nosec
-        import subprocess32 as subprocess
-    else:
-        import subprocess  # nosemgrep: rules.bandit.B40
-
-    defaults = {"stdout": subprocess.PIPE, "stderr": subprocess.PIPE}
-    defaults.update(kwargs)
-    proc = subprocess.run(  # nosec, pylint: disable=subprocess-run-check
-        *argv, **defaults
-    ).__dict__
-    if "text" not in kwargs or kwargs["text"]:
-        proc["stdout"] = proc["stdout"].decode()
-        proc["stderr"] = proc["stderr"].decode()
-    return proc
 
 
 def ipaddress(addr, version=None, flags=0):

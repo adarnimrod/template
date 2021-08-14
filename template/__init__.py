@@ -13,6 +13,7 @@ from os import environ
 import sys
 import argparse
 import template.filters
+import template.functions
 
 # I ignore import errors here and fail on them later in the main function so
 # the module can be imported by the setup.py with jinja missing so the
@@ -31,9 +32,18 @@ def render(template_string):
     env = Environment(autoescape=True)
     # Add all functions in template.filters as Jinja filters.
     # pylint: disable=invalid-name
-    for tf in filter(lambda x: not x.startswith("_"), dir(template.filters)):
+    for tf in filter(
+        lambda x: callable(getattr(template.filters, x))
+        and not x.startswith("_"),
+        dir(template.filters),
+    ):
         env.filters[tf] = getattr(template.filters, tf)
-    t = env.from_string(template_string)
+    functions = {
+        x: getattr(template.functions, x)
+        for x in dir(template.functions)
+        if callable(getattr(template.functions, x)) and not x.startswith("_")
+    }
+    t = env.from_string(template_string, globals=functions)
     return t.render(environ)
 
 
