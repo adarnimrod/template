@@ -7,8 +7,9 @@ verify_ssl = true
 pre-commit = "*"
 bump2version = {version = "*",markers = "python_version >= '3.6'"}
 twine = "*"
-template = {editable = true,path = "."}
+template = {editable = true,path = ".", extras=["all"]}
 pytest = "*"
+netaddr = "*"
 
 [scripts]
 lint = "pre-commit run --all-files"
