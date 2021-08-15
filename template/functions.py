@@ -49,8 +49,7 @@ def readfile(path):
     ''
     >>> foo = "foo"
     >>> with open("/tmp/foo", "w") as f:
-    ...     f.write(foo)
-    3
+    ...     _ = f.write(foo)
     >>> foo == readfile("/tmp/foo")
     True
     """
