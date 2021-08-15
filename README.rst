@@ -117,6 +117,7 @@ Jinja functions
 
 - :code:`run`: Runs a command and returns the stdout, stderr and returncode
   using run_. This function replaces the :code:`run` filter.
+- :code:`readfile`: Returns the contents of a file.
 
 Example usage can be seen in :code:`tests` and for specific filters in the
 docstrings in :code:`template/functions.py`.

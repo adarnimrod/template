@@ -39,3 +39,21 @@ def run(*argv, **kwargs):
         proc["stdout"] = proc["stdout"].decode()
         proc["stderr"] = proc["stderr"].decode()
     return proc
+
+
+def readfile(path):
+    """
+    Opens a file, returns the contents.
+
+    >>> readfile("/dev/null")
+    ''
+    >>> foo = "foo"
+    >>> with open("/tmp/foo", "w") as f:
+    ...     f.write(foo)
+    3
+    >>> foo == readfile("/tmp/foo")
+    True
+    """
+
+    with open(path, "r") as f:  # pylint: disable=invalid-name
+        return f.read()
