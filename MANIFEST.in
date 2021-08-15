@@ -7,3 +7,4 @@ exclude .gitignore
 exclude Pipfile*
 exclude tests
 exclude tests/*
+exclude pyproject.toml
